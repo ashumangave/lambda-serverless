@@ -1,0 +1,1 @@
+use "serverless deploy" command to deploy the application

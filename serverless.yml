@@ -1,0 +1,22 @@
+service: sample-project
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  memorySize: 2048
+  stage: dev
+  timeout: 15
+  region: ap-south-1
+  # lambdaHashingValue: 20223012
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http: ANY /{proxy+}
+      - http: ANY /
+
+    environment:
+     PORT: 3000
+     NODE_ENV: development
